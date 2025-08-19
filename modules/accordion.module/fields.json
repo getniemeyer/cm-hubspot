@@ -1,0 +1,41 @@
+[
+  {
+    "name": "accordion",
+    "label": "Accordion",
+    "type": "repeater",
+    "required": true,
+    "locked": false,
+    "children": [
+      {
+        "name": "title",
+        "label": "Titel",
+        "type": "text",
+        "required": true,
+        "locked": false
+      },
+      {
+        "name": "content",
+        "label": "Inhalt",
+        "type": "richtext",
+        "required": true,
+        "locked": false
+      }
+    ]
+  },
+  {
+    "name": "headline",
+    "label": "Überschrift",
+    "type": "text",
+    "required": false,
+    "locked": false,
+    "default": "Hier Überschrift eingeben"
+  },
+  {
+    "name": "text",
+    "label": "Text",
+    "type": "richtext",
+    "required": false,
+    "locked": false,
+    "default": "<p>Hier beschreibenden Text eingeben…</p>"
+  }
+]

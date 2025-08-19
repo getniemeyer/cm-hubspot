@@ -1,0 +1,9 @@
+{
+  "label": "Accordion (Custom)",
+  "description": "Ein einfaches, flexibles Accordion für FAQs oder Produktinfo.",
+  "icon": "list-alt",
+  "categories": ["design", "content", "FAQ", "widgets"],
+  "isAvailableForNewContent": true,
+  "module_type": "custom",
+  "host_template_types": ["SITE_PAGE", "LANDING_PAGE", "BLOG_LISTING", "BLOG_POST"]
+}

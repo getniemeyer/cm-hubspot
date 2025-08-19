@@ -1,0 +1,37 @@
+<link rel="stylesheet" href="{{ get_module_url() }}/module.css" />
+
+<div class="accordion-module">
+
+  {% if module.headline %}
+    <h2>{{ module.headline }}</h2>
+  {% else %}
+    <h2>Hier Überschrift eingeben</h2>
+  {% endif %}
+
+  {% if module.text %}
+    <div class="intro-text">
+      {{ module.text | rich_text }}
+    </div>
+  {% else %}
+    <div class="intro-text">
+      <p>Hier beschreibenden Text eingeben…</p>
+    </div>
+  {% endif %}
+
+  <div class="hs-simple-accordion">
+    {% for item in module.accordion %}
+      <details>
+        <summary class="hs-simple-accordion__title">
+          {{ item.title | default('Titel eingeben') }}
+          <span class="hs-simple-accordion__icon">&#9660;</span>
+        </summary>
+        <div class="hs-simple-accordion__body">
+          {{ item.content | rich_text | default('<p>Inhalt eingeben</p>') }}
+        </div>
+      </details>
+    {% else %}
+      <p>Keine Accordion-Einträge vorhanden. Bitte fügen Sie Inhalte hinzu.</p>
+    {% endfor %}
+  </div>
+
+</div>

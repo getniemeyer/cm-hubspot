@@ -1,0 +1,165 @@
+<!--
+  templateType: page
+  isAvailableForNewContent: true
+  label: Kandidatenpool
+  screenshotPath: ../images/template-previews/candidates.png
+-->
+{% extends "./layouts/base.html" %}
+
+{% block body %}
+<div class="container-fluid body-container body-container--candidates">
+  <div class="row-fluid-wrapper row-number-1 row-depth-1">
+    <div class="row-fluid">
+      <div class="main-content span12">
+        <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd_area-row-0-background-color dnd_area-row-0-background-layers dnd-section dnd_area-row-0-padding">
+          <div class="row-fluid">
+            <div class="span12 widget-span widget-type-cell dnd-column">
+              <section class="candidates-hero">
+                <h1>Kandidatenpool</h1>
+                <p class="candidates-intro">
+                  24/7 direkter Zugang zu qualifizierten Kandidaten.
+                </p>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid-wrapper row-number-2 row-depth-2">
+    <div class="row-fluid">
+      <div class="span12">
+        <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd_area-row-0-background-color dnd_area-row-0-background-layers dnd-section dnd_area-row-0-padding">
+          <div class="row-fluid">
+            <div class="span12 widget-span widget-type-cell dnd-column">
+
+              <form id="cmFilterForm" class="candidates-search-bar no-print" autocomplete="off" style="margin-bottom:28px;">
+                <div class="row-fluid candidates-search-row" style="display:flex;gap:16px;flex-wrap:wrap;align-items:end;">
+                  <div class="span3 candidate-search-field">
+                    <label for="industry">Branche</label>
+                    <input type="text" class="input-block-level" name="industry" id="industry" placeholder="z. B. IT, Bildung, ...">
+                  </div>
+                  <div class="span3 candidate-search-field">
+                    <label for="location">Einsatzort</label>
+                    <input type="text" class="input-block-level" name="location" id="location" placeholder="z. B. Berlin, Remote, ...">
+                  </div>
+                  <div class="span3 candidate-search-field">
+                    <label for="keyword">Suchbegriff</label>
+                    <input type="text" class="input-block-level" name="keyword" id="keyword" placeholder="Stichwort, Qualifikation…">
+                  </div>
+                  <div class="span3">
+                    <button type="submit" id="findCandidatesBtn" class="candidate-find-btn" style="margin-top:2em;width:100%;">Kandidaten finden</button>
+                  </div>
+                </div>
+                <div class="employment-type-row" style="display:flex;gap:30px;margin:18px 0 6px 0;flex-wrap:wrap;">
+                  <label class="candidate-type-label"><input type="radio" name="employmentType" value="Festanstellung" checked> Festanstellung</label>
+                  <label class="candidate-type-label"><input type="radio" name="employmentType" value="Interim-Management"> Interim-Management</label>
+                  <label class="candidate-type-label"><input type="radio" name="employmentType" value="Freelance"> Freelance</label>
+                  <label class="candidate-type-label"><input type="radio" name="employmentType" value="Beirat/Aufsichtsrat"> Beirat/Aufsichtsrat</label>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row-fluid-wrapper row-number-3 row-depth-3">
+    <div class="row-fluid">
+      <div class="span12 candidates-main-content">
+        <div class="row-fluid-wrapper row-depth-1 row-number-1 dnd_area-row-0-background-color dnd_area-row-0-background-layers dnd-section dnd_area-row-0-padding">
+          <div class="row-fluid">
+            <div class="span12 widget-span widget-type-cell dnd-column">
+
+              <aside class="candidates-filter-sidebar no-print" style="background:#dcecf5;padding:18px 12px 24px 16px;border-radius:16px;width:260px;flex:0 0 260px;min-width:170px;">
+                <div class="accordion">
+                  <button type="button" class="accordion-toggle">Erfahrung</button>
+                  <div class="accordion-content" style="display:none;">
+                    <label><input type="checkbox" name="seniority" value="Junior"> Junior</label><br>
+                    <label><input type="checkbox" name="seniority" value="Senior"> Senior</label><br>
+                    <!-- ... -->
+                  </div>
+                </div>
+                <div class="accordion">
+                  <button type="button" class="accordion-toggle">Berufsfeld</button>
+                  <div class="accordion-content" style="display:none;">
+                    <label><input type="checkbox" name="fieldOfWork" value="Vertrieb"> Vertrieb</label><br>
+                    <label><input type="checkbox" name="fieldOfWork" value="Management"> Management</label><br>
+                    <!-- ... -->
+                  </div>
+                </div>
+                <div class="accordion">
+                  <button type="button" class="accordion-toggle">Gehaltsspanne</button>
+                  <div class="accordion-content salary-filter" style="display:none;">
+                    <label>
+                      <input type="checkbox" class="salary-range" name="salary_range" value="40000-49999" data-min="40000" data-max="49999">
+                      40–49k €
+                    </label><br>
+                    <label>
+                      <input type="checkbox" class="salary-range" name="salary_range" value="50000-59999" data-min="50000" data-max="59999">
+                      50–59k €
+                    </label><br>
+                    <!-- ... -->
+                    <input type="hidden" id="salary_min" name="salary_min" value="0">
+                    <input type="hidden" id="salary_max" name="salary_max" value="9999999">
+                  </div>
+                </div>
+              </aside>
+              <main class="candidates-results-main" style="flex:1;">
+                <div id="cmCandidatesContainer" class="candidates-grid"></div>
+                <div id="loadingSpinner" style="display:none"></div>
+                <div class="candidates-footer" style="margin-top:38px;">
+                  <p>Sie möchten ein persönliches Gespräch oder suchen nach besonderen Profilen? <a href="/kontakt/">Jetzt Kontakt aufnehmen</a></p>
+                </div>
+              </main>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Accordion-Logik: Alle Accordeons toggeln unabhängig und wechseln keine anderen automatisch zugeklappt
+  document.querySelectorAll('.accordion-toggle').forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const content = this.nextElementSibling;
+      if (content) {
+        // Toggle Ein/Aus für das direkt folgende Accordion-Panel
+        if (content.style.display === 'block') {
+          content.style.display = 'none';
+        } else {
+          content.style.display = 'block';
+        }
+      }
+    });
+  });
+
+  // Optional: Beim Laden erstes Accordion öffnen
+  document.addEventListener('DOMContentLoaded', () => {
+    const firstAccordion = document.querySelector('.accordion-content');
+    if (firstAccordion) firstAccordion.style.display = 'block';
+  });
+
+  // Form-Submit abfangen und Kandidaten laden
+  const cmFilterForm = document.getElementById('cmFilterForm');
+  if (cmFilterForm) {
+    cmFilterForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetchCandidates(1);
+    });
+  }
+
+  // Kandidaten beim Seiten-Load laden
+  document.addEventListener('DOMContentLoaded', () => {
+    // Update Salary Range ggf. initial setzen (wenn noch nicht gemacht)
+    if (typeof updateSalaryRange === 'function') updateSalaryRange();
+    const container = document.getElementById('cmCandidatesContainer');
+    if (container) fetchCandidates(1);
+  });
+</script>
+{% endblock body %}

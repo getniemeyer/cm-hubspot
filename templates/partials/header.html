@@ -1,0 +1,34 @@
+<!--
+  templateType: global_partial
+  label: Website header
+-->
+{% import '../../modules/menu.module' as menu_mod %}
+
+<header class="header">
+  <a href="#main-content" class="header__skip">Skip to content</a>
+
+  <div class="header__container content-wrapper header__nav-flex">
+    <!-- Logo -->
+    <div class="header__logo header__logo--main">
+      {% module "site_logo"
+        path="@hubspot/logo"
+        img={ "loading": "eager" }
+      %}
+    </div>
+    <button class="header__navigation--toggle" aria-label="Open Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <!-- Desktop-Menü im Container -->
+    <div class="header__navigation header--element">
+      {% module "navigation-primary"
+        path="../modules/menu",
+        menu_id="cm-menu",
+        label="Primary navigation"
+      %}
+    </div>
+  </div>
+
+</header>

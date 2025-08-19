@@ -1,0 +1,74 @@
+<!--
+  templateType: global_partial
+  label: Footer
+-->
+<footer class="footer">
+  <div class="container-fluid footer-inner">
+    <div class="row-fluid">
+      <div class="span8">
+        <h2 class="footer-cta">Ready für den nächsten Karriereschritt?</h2>
+        <div class="footer-buttons-area" style="display:flex; gap: 12px; flex-wrap: wrap;">
+          {% dnd_area "footer_buttons" label="Footer Buttons" class="footer-buttons-dnd" %}
+            {% dnd_section %}
+              {% dnd_column %}
+                {% dnd_row %}
+                  {# Hier per Editor Buttons als Module reinziehen #}
+                  {% dnd_module path="../modules/button.module" %}
+                  {% end_dnd_module %}
+                {% end_dnd_row %}
+              {% end_dnd_column %}
+            {% end_dnd_section %}
+          {% end_dnd_area %}
+        </div>
+      </div>
+
+        
+      <div class="span3">
+        <h2>Lass uns matchen:</h2>
+        <div class="footer-social-area" style="margin-top:14px;">
+          {% dnd_area "footer_social"
+            label="Social-Icons/Footer",
+            class="footer-social-cm"
+          %}
+            {% dnd_section %}
+              {% dnd_column %}
+                {% dnd_row %}
+                  {% dnd_module path="@hubspot/social_follow" layout="horizontal" %}
+                  {% end_dnd_module %}
+                {% end_dnd_row %}
+              {% end_dnd_column %}
+            {% end_dnd_section %}
+          {% end_dnd_area %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Zeile: Links & Kontakt & Logo -->
+    <div class="row-fluid widget-area" style="margin-top:72px;">
+      <div class="span3 footer-logo">
+        <img class="img-fluid" src="https://146512443.fs1.hubspotusercontent-eu1.net/hubfs/146512443/CleverMatch-Logo-negativ.svg" alt="CleverMatch Logo negativ" width="250" height="52">
+      </div>
+      <div class="span2 footer-links">
+        <p><a href="/unternehmen/kandidatenpool/">Entdecke Kandidaten</a></p>
+        <p><a href="/jobs/">Finde Jobs</a></p>
+        <p><a href="https://www.clevermatch.com/connect/?utm_source=www&utm_campaign=footer_link" target="_blank" rel="noopener">Werde CleverScout</a></p>
+      </div>
+      <div class="span2 footer-links">
+        <p><a href="/datenschutz/">Datenschutz</a></p>
+        <p><a href="/agb/">AGB</a></p>
+        <p><a href="/impressum/">Impressum</a></p>
+      </div>
+      <div class="span3 footer-contact">
+        <p>
+          CleverMatch GmbH<br>
+          Miquelallee 9<br>
+          60487 Frankfurt am Main<br>
+          Deutschland<br>
+          Telefon: +49 69 678 305 840<br>
+          <a href="mailto:team@clevermatch.com">team@clevermatch.com</a>
+        </p>
+      </div>
+    </div>
+    
+  </div>
+</footer>

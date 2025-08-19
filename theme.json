@@ -1,0 +1,23 @@
+{
+  "label" : "cm-theme child",
+  "preview_path" : "./templates/home.html",
+  "screenshot_path" : "./images/template-previews/home.png",
+  "enable_domain_stylesheets" : false,
+  "is_available_for_new_content" : true,
+  "extends" : "cm-theme",
+  "responsive_breakpoints" : [ {
+    "mediaQuery" : "@media (max-width: 991.98px)",
+    "messages" : { },
+    "name" : "mobile",
+    "previewWidth" : {
+      "units" : "px",
+      "value" : 477
+    }
+  } ],
+  "author" : {
+    "name" : "",
+    "email" : ""
+  },
+  "license" : "./license.txt",
+  "hide_all_default_modules" : false
+}
